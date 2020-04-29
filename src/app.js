@@ -6,12 +6,7 @@ let trophiesWon = 27;
 
 //Write your function here
 function createManager(managerName, managerAge, currentTeam, trophiesWon) {
-  var Manager = [
-    managerName,
-    managerAge,
-    currentTeam,
-    trophiesWon
-  ];
+  var Manager = [managerName, managerAge, currentTeam, trophiesWon];
 
   return Manager;
 }
@@ -40,7 +35,7 @@ function createFormation(a) {
   let form1 = {
     defender: a[0],
     midfield: a[1],
-    forward: a[2]
+    forward: a[2],
   };
   return form1;
 }
@@ -85,7 +80,6 @@ function filterByAward(awardName) {
     return [];
   }
   for (let i = 0; i < players.length; i++) {
-
     for (let j = 0; j < players[i].awards.length; j++) {
       if (awardName == players[i].awards[j].name) {
         p.push(players[i]);
@@ -115,13 +109,14 @@ function filterByAwardxTimes(awardName, noOfTimes) {
     if (counter == noOfTimes) {
       p.push(players[i]);
     }
+    counter = 0;
   }
   return p;
 }
 
 //Progression 7 - Filter players that won ______ award and belong to ______ country
 
-function filterByAwardxTimes(awardName, country) {
+function filterByAwardxCountry(awardName, country) {
   let p = [];
 
   for (let i = 0; i < players.length; i++) {
@@ -143,7 +138,11 @@ function filterByNoOfAwardsxTeamxAge(noOfAwards, team, age) {
   let p = [];
 
   for (let i = 0; i < players.length; i++) {
-    if (players[i].awards.length == noOfAwards && players[i].team == team && players[i].age == age) {
+    if (
+      players[i].awards.length == noOfAwards &&
+      players[i].team == team &&
+      players[i].age == age
+    ) {
       p.push(players[i]);
     }
   }
